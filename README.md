@@ -9,8 +9,6 @@ Verifica se a internet está disponível para fazer o consumo da API
 
 Faz buscas por palavra digitada pelo usuário
 
-![Screenshot_01!](Screenshot_01.png)
-
-![Screenshot_01!](Screenshot_02.png)
-
-![Screenshot_01!](Screenshot_03.png)
+![Screenshot_01!](Screenshot_01.png =250x)  
+![Screenshot_01!](Screenshot_02.png =250x)
+![Screenshot_01!](Screenshot_03.png =250x)
