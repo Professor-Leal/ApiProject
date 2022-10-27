@@ -1,5 +1,6 @@
 package com.rafaelleal.android.apiproject.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -9,6 +10,7 @@ import com.rafaelleal.android.apiproject.api.models.Article
 import com.rafaelleal.android.apiproject.databinding.NewsTitleListItemBinding
 import com.squareup.picasso.Picasso
 
+const val TAG = "NewsAdapter"
 
 class NewsAdapter(val listener: NewsListener) :
     ListAdapter<
@@ -41,11 +43,15 @@ class NewsAdapter(val listener: NewsListener) :
                 tvAutor.text = item.author
                 tvDescricao.text = item.description
                 tvFonte.text = item.source?.name
-                Picasso.get()
-                    .load(item.urlToImage)
-                    .resize(100, 150)
-                    .centerCrop()
-                    .into(ivArticle)
+
+                val urlImage = item.urlToImage
+                if (!urlImage.isNullOrBlank()){
+                    Picasso.get()
+                        .load(urlImage)
+                        .resize(100, 150)
+                        .centerInside()
+                        .into(ivArticle)
+                }
 
                 mainLayout.setOnClickListener {
                     listener.onItemClick(item)

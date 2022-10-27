@@ -27,7 +27,7 @@ class MainViewModel : ViewModel() {
 
     val selectedArticle: LiveData<Article> = _selectedArticle
 
-    fun setSelectedArticle(value: Article){
+    fun setSelectedArticle(value: Article) {
         _selectedArticle.postValue(value)
     }
 
@@ -64,14 +64,14 @@ class MainViewModel : ViewModel() {
     }
 
     suspend fun fetchNewsContets(query: String): List<Article> {
-        var lista : List<Article>
+        var lista: List<Article>
 
-        try{
+        try {
             val response = repositorio.fetchNewsContents(query)
             lista = response.articles ?: emptyList()
             Log.d(TAG, "Lista News: $lista")
 
-        } catch (ex: Exception){
+        } catch (ex: Exception) {
             lista = listOf()
             Log.e(TAG, "Falhou em receber dados da API", ex)
         }
@@ -80,14 +80,16 @@ class MainViewModel : ViewModel() {
     }
 
     suspend fun fetchTopHeadlines(): List<Article> {
-        var lista : List<Article>
+        var lista: List<Article>
 
-        try{
+        try {
             val response = repositorio.fetchNewsTopHeadlines()
             lista = response.articles ?: emptyList()
+            Log.d(TAG, "Response Status: ${response.status}")
+            Log.d(TAG, "Response totalResults: ${response.totalResults}")
             Log.d(TAG, "Lista Top Headlines: $lista")
 
-        } catch (ex: Exception){
+        } catch (ex: Exception) {
             lista = listOf()
             Log.e(TAG, "Falhou em receber dados da API", ex)
         }

@@ -8,7 +8,7 @@ import retrofit2.http.Query
 
 // Referência: https://newsapi.org/
 
-const val API_KEY = "02931f6d574144ad8350fbc0d2c0efb6" //"Sua Chave da API"
+const val API_KEY = "Sua Chave da API"
 const val SIGLA_PAIS = "br"
 const val LANGUAGE = "pt"
 

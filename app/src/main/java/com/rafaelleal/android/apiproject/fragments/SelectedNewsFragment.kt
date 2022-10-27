@@ -56,11 +56,15 @@ class SelectedNewsFragment : Fragment() {
             tvFonte.text = article.source?.name ?: "Fonte desconhecida"
             tvDescricao.text = article.description
 
-            Picasso.get()
-                .load(article.urlToImage)
-                .resize(100, 150)
-                .centerCrop()
-                .into(ivArticle)
+            val urlImage = article.urlToImage
+            if (!urlImage.isNullOrBlank()){
+                Picasso.get()
+                    .load(urlImage)
+                    .resize(100, 150)
+                    .centerInside()
+                    .into(ivArticle)
+            }
+
 
         }
     }
