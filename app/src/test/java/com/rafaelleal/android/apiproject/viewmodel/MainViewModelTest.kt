@@ -17,38 +17,6 @@ import org.mockito.kotlin.mock
 @RunWith(AndroidJUnit4::class)
 class MainViewModelTest {
 
-    private lateinit var viewModel: MainViewModel
-    //private lateinit var repository: NewsRepository
 
-    @Before
-    fun setup(){
-//        NewsRepository.initialize()
-//        NewsRepository.initialize()
-//        repository = NewsRepository.get()
-//        repository
-        val viewModel = MainViewModel()
-    }
-
-    @Test
-    fun setSelectedArticleMustSetArticle() {
-
-        val article = Article(
-            author = "Autor",
-            title = "Título",
-            description = "Descrição",
-            url = "https://newsapi.org/",
-            urlToImage = "https://zycrypto.com/wp-content/uploads/2022/04/Robinhood-CEO-Tenev-Sees-Dogecoin-As-The-Future-Currency-Of-The-Internet-But-Much-Has-To-Be-Done.jpg",
-            publishedAt = "2022-10-26T17:25:11Z",
-            content = "Conteúdo",
-            source = Source(id = "id", name = "Nome")
-        )
-
-        viewModel.setSelectedArticle(article)
-
-        assertEquals( "Autor" ,  article.author)
-        //assertEquals( "Autor" ,  viewModel.selectedArticle.value?.author)
-
-
-    }
 
 }
